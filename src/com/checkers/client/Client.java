@@ -1,7 +1,6 @@
-package client;
+package com.checkers.client;
 
-import vo.Field;
-import vo.Step;
+import com.checkers.domain.vo.Field;
 
 import java.io.*;
 import java.net.Socket;
@@ -17,7 +16,7 @@ public class Client {
         ObjectInputStream inObject=null;
         ObjectOutputStream outObj = null;
         try {
-            clsock = new Socket(""+args[0],Integer.parseInt(args[1]));
+            clsock = new Socket("localhost",8181);
             System.out.println("Connection established");
 
             inObject = new ObjectInputStream(clsock.getInputStream());

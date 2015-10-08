@@ -1,4 +1,4 @@
-package vo;
+package com.checkers.domain.vo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,8 +7,8 @@ import java.util.ArrayList;
  * Created by Isaiev on 24.09.2015.
  */
 public class Step implements Serializable{
-    
-    ANY-ACCESS-MODIFIER static final long serialVersionUID = 42L;
+
+    public static final long serialVersionUID = 43L;
 
     private Check check;
     private ArrayList<Position> positionAfteMove;

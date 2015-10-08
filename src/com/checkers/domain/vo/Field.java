@@ -1,14 +1,13 @@
-package vo;
+package com.checkers.domain.vo;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Isaiev on 24.09.2015.
  */
 public class Field implements Serializable {
     
-    ANY-ACCESS-MODIFIER static final long serialVersionUID = 42L;
+    public static final long serialVersionUID = 42L;
 
     private ArrayList<Check> allChecks;
 
