@@ -15,6 +15,7 @@ public class Client {
         Socket clsock = null;
         ObjectInputStream inObject=null;
         ObjectOutputStream outObj = null;
+        String color = null;
         try {
             clsock = new Socket("localhost",8181);
             System.out.println("Connection established");
@@ -22,9 +23,13 @@ public class Client {
             inObject = new ObjectInputStream(clsock.getInputStream());
             outObj = new ObjectOutputStream(clsock.getOutputStream());
             while (true) {
-                Field currentField = (Field)inObject.readObject();
-                if(currentField!=null){
-                    outObj.writeObject(bot.calculateNextStep(currentField));
+                color = (String)inObject.readObject();
+                if(color!=null){
+                    System.out.println(color);
+                    Field currentField = (Field)inObject.readObject();
+                    if(currentField!=null){
+                        outObj.writeObject(bot.calculateNextStep(currentField));
+                    }
                 }
             }
         } catch (IOException e) {
