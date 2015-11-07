@@ -6,7 +6,10 @@ import com.checkers.domain.vo.Step;
 /**
  * Created by Isaiev on 01.10.2015.
  */
-public class CheckersBot implements ICheckersBot {
+public class CheckersBot extends CheckersAbstractBot {
+
+    public CheckersBot() {
+    }
 
     @Override
     public Step calculateNextStep(Field currentField) {

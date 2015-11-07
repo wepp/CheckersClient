@@ -12,6 +12,7 @@ public class Step implements Serializable{
 
     private Check check;
     private ArrayList<Position> positionAfteMove;
+    private long usedTime;
 
     public Step(Check check, ArrayList<Position> positionAfteMove) {
         this.check = check;
@@ -26,6 +27,14 @@ public class Step implements Serializable{
 
     public ArrayList<Position> getPositionAfteMove() {
         return positionAfteMove;
+    }
+
+    public void setUsedTime(long usedTime) {
+        this.usedTime = usedTime;
+    }
+
+    public long getUsedTime() {
+        return usedTime;
     }
 
     @Override
