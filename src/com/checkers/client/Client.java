@@ -18,14 +18,14 @@ public class Client {
         Socket clsock = null;
         ObjectInputStream inObject = null;
         ObjectOutputStream outObj = null;
-        CheckersAbstractBot bot;
+        CheckersBot bot;
         String className = args[0];
         String host = args[1];
         Integer port;
         String teamName = args[3];
         try {
             port = Integer.valueOf(args[2]);
-            bot = (CheckersAbstractBot) Class.forName(className).newInstance();
+            bot = (CheckersBot) Class.forName(className).newInstance();
 
             System.out.println("newInstance created");
             clsock = new Socket(host, port);
