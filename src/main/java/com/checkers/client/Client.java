@@ -33,13 +33,15 @@ public class Client {
 
             inObject = new ObjectInputStream(clsock.getInputStream());
             outObj = new ObjectOutputStream(clsock.getOutputStream());
-            ObjectMapper objectMapper = new ObjectMapper();
             System.out.println("teamName "+teamName);
+            ObjectMapper objectMapper = new ObjectMapper();
+            System.out.println("objectMapper created");
             outObj.writeObject(teamName);
             Step userStep = null;
             long timer;
             while (true) {
-                Field currentField = objectMapper.readValue((String)inObject.readObject(), Field.class);
+                String field = (String)inObject.readObject();
+                Field currentField = objectMapper.readValue(field, Field.class);
                 System.out.println(currentField);
                 timer = System.currentTimeMillis();
                 if(currentField != null){
