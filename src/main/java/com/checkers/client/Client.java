@@ -2,7 +2,7 @@ package com.checkers.client;
 
 import com.checkers.domain.vo.Field;
 import com.checkers.domain.vo.Step;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
