@@ -2,6 +2,7 @@ package com.checkers.client;
 
 import com.checkers.domain.vo.Field;
 import com.checkers.domain.vo.Step;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -21,6 +22,7 @@ public class Client {
         String className = args[0];
         String host = args[1];
         Integer port;
+        String teamName = args[4];
         try {
             port = Integer.valueOf(args[2]);
             bot = (CheckersAbstractBot) Class.forName(className).newInstance();
@@ -31,10 +33,13 @@ public class Client {
 
             inObject = new ObjectInputStream(clsock.getInputStream());
             outObj = new ObjectOutputStream(clsock.getOutputStream());
+            ObjectMapper objectMapper = new ObjectMapper();
+            System.out.println("teamName "+teamName);
+            outObj.writeObject(teamName);
             Step userStep = null;
             long timer;
             while (true) {
-                Field currentField = (Field)inObject.readObject();
+                Field currentField = objectMapper.readValue((String)inObject.readObject(), Field.class);
                 System.out.println(currentField);
                 timer = System.currentTimeMillis();
                 if(currentField != null){
@@ -42,7 +47,7 @@ public class Client {
                 }
                 timer = System.currentTimeMillis() - timer;
                 userStep.setUsedTime(timer);
-                outObj.writeObject(userStep);
+                outObj.writeObject(objectMapper.writeValueAsString(userStep));
             }
         } catch (IOException e) {
             System.err.println("Client error! " + e);
