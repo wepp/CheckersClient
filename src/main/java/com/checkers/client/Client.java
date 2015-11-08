@@ -4,6 +4,7 @@ import com.checkers.domain.vo.Field;
 import com.checkers.domain.vo.Step;
 import org.codehaus.jackson.map.ObjectMapper;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -51,6 +52,8 @@ public class Client {
                 userStep.setUsedTime(timer);
                 outObj.writeObject(objectMapper.writeValueAsString(userStep));
             }
+        } catch (EOFException e) {
+            System.out.println("Game Finished");
         } catch (IOException e) {
             System.err.println("Client error! " + e);
             e.printStackTrace();
@@ -61,7 +64,7 @@ public class Client {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 clsock.close();
                 inObject.close();

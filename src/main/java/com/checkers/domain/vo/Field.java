@@ -1,6 +1,8 @@
 package com.checkers.domain.vo;
+
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Isaiev on 24.09.2015.
@@ -9,17 +11,17 @@ public class Field implements Serializable {
     
     public static final long serialVersionUID = 42L;
 
-    private ArrayList<Check> allChecks;
+    private Set<Check> allChecks;
 
     public Field() {
-        allChecks=new ArrayList<Check>();
+        allChecks= new HashSet<Check>();
     }
 
-    public ArrayList<Check> getAllChecks() {
+    public Set<Check> getAllChecks() {
         return allChecks;
     }
 
-    protected void setAllChecks(ArrayList<Check> allChecks) {
+    public void setAllChecks(Set<Check> allChecks) {
         this.allChecks = allChecks;
     }
 }

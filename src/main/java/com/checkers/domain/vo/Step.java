@@ -11,12 +11,12 @@ public class Step implements Serializable{
     public static final long serialVersionUID = 43L;
 
     private Check check;
-    private ArrayList<Position> positionAfteMove;
+    private ArrayList<Position> positionAfterMove;
     private long usedTime;
 
     public Step(Check check, ArrayList<Position> positionAfteMove) {
         this.check = check;
-        this.positionAfteMove = positionAfteMove;
+        this.positionAfterMove = positionAfteMove;
     }
     
     public Step(){};
@@ -25,8 +25,8 @@ public class Step implements Serializable{
         return check;
     }
 
-    public ArrayList<Position> getPositionAfteMove() {
-        return positionAfteMove;
+    public ArrayList<Position> getPositionAfterMove() {
+        return positionAfterMove;
     }
 
     public void setUsedTime(long usedTime) {
@@ -41,7 +41,7 @@ public class Step implements Serializable{
     public String toString() {
         return "Step{" +
                 "check=" + check +
-                ", positionAfteMove=" + positionAfteMove +
+                ", positionAfterMove=" + positionAfterMove +
                 '}';
     }
 }
