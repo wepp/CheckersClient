@@ -22,7 +22,7 @@ public class Client {
         String className = args[0];
         String host = args[1];
         Integer port;
-        String teamName = args[4];
+        String teamName = args[3];
         try {
             port = Integer.valueOf(args[2]);
             bot = (CheckersAbstractBot) Class.forName(className).newInstance();
@@ -51,10 +51,12 @@ public class Client {
             }
         } catch (IOException e) {
             System.err.println("Client error! " + e);
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
             System.err.println("Client error! " + e);
+            e.printStackTrace();
         } catch (InstantiationException e) {
-        e.printStackTrace();
+            e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }finally {
